@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function startCountdown() {
     // Fixed end time for the countdown (e.g., March 20, 2024, 12:00:00 UTC)
-    var endTime = new Date('2024-03-20T12:00:00Z').getTime();
+    var endTime = new Date('2024-03-21T12:00:00Z').getTime();
 
     // Update the countdown every 1 second
     var timer = setInterval(function () {
