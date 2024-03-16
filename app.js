@@ -24,14 +24,21 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Function to fetch and display Solana balance
+// Ensure the Solana Web3.js library is correctly imported in your HTML file
+// <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest"></script>
+
 async function fetchSolanaBalance() {
-    const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Replace with the actual wallet address
-    const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'));
-    const publicKey = new solanaWeb3.PublicKey(walletAddress);
-    const balance = await connection.getBalance(publicKey);
-    document.getElementById('balance').innerText = `Wallet Balance: ${(balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(2)} SOL`;
+    const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Replace with your actual wallet address
+    try {
+        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
+        const publicKey = new solanaWeb3.PublicKey(walletAddress);
+        const balance = await connection.getBalance(publicKey);
+        document.getElementById('balance').innerText = `Wallet Balance: ${(balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(2)} SOL`;
+    } catch (error) {
+        console.error("Error fetching Solana balance:", error);
+        document.getElementById('balance').innerText = "Error fetching balance";
+    }
 }
 
-// Call the function to fetch Solana balance
-fetchSolanaBalance();
+document.addEventListener('DOMContentLoaded', fetchSolanaBalance);
+
