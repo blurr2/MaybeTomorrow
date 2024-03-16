@@ -1,0 +1,25 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #000000;
+}
+
+.container {
+    text-align: center;
+}
+
+.balance {
+    font-size: 48px; /* Large font size for the wallet balance */
+    font-weight: bold;
+    margin-bottom: 20px; /* Space between the wallet balance and the timer */
+    color: rgb(203, 40, 4); /* Change the color to blue */
+}
+
+.timer {
+    font-size: 32px; /* Slightly smaller font size for the timer */
+    color: rgb(200, 80, 1); /* Change the color to green */
+}
