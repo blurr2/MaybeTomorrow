@@ -28,7 +28,7 @@ function startCountdown() {
     }, 1000);
 }
 
-function fetchSolanaBalance() {
+async function fetchSolanaBalance() {
     const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Replace with your actual wallet address
     try {
         // Use your custom RPC endpoint
