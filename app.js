@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
+    fetchSolanaBalance();
+    startCountdown();
+});
+
+function startCountdown() {
     // Fixed end time for the countdown (e.g., March 20, 2024, 12:00:00 UTC)
     var endTime = new Date('2024-03-20T12:00:00Z').getTime();
 
@@ -21,11 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("timer").innerHTML = "EXPIRED";
         }
     }, 1000);
-});
+}
 
-
-// Ensure the Solana Web3.js library is correctly imported in your HTML file
-// <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest"></script>
 async function fetchSolanaBalance() {
     const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Wallet address
     try {
@@ -48,4 +50,3 @@ async function fetchSolanaBalance() {
         document.getElementById('balance').innerText = "Error fetching balance";
     }
 }
-
