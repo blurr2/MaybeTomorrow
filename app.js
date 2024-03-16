@@ -4,8 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function startCountdown() {
-    // Fixed end time for the countdown (e.g., March 20, 2024, 12:00:00 UTC)
-    var endTime = new Date('2024-03-21T12:00:00Z').getTime();
+    // Set the end time in UTC
+    // For example, March 21, 2024, at 12:00:00 UTC
+    var endTime = new Date(Date.UTC(2024, 2, 21, 12, 0, 0)).getTime();
 
     // Update the countdown every 1 second
     var timer = setInterval(function () {
