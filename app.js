@@ -1,27 +1,22 @@
+
 document.addEventListener('DOMContentLoaded', function () {
-    fetchSolanaBalance();
     startCountdown();
+     fetchSolanaBalance();
 });
 
 function startCountdown() {
-    // Set the end time in UTC
-    // For example, March 21, 2024, at 12:00:00 UTC
-    var endTime = new Date(Date.UTC(2024, 2, 21, 12, 0, 0)).getTime();
+    var endTime = new Date(Date.now() + 12 * 3600 * 1000); // 12 hours from now
 
-    // Update the countdown every 1 second
     var timer = setInterval(function () {
-        var now = new Date().getTime();
+        var now = new Date();
         var distance = endTime - now;
 
-        // Time calculations for hours, minutes, and seconds
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Display the result in the element with id="timer"
         document.getElementById("timer").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
 
-        // If the countdown is over, write some text
         if (distance < 0) {
             clearInterval(timer);
             document.getElementById("timer").innerHTML = "EXPIRED";
