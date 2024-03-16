@@ -1,7 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     startCountdown();
-     fetchSolanaBalance();
+     fetchAndDisplaySolanaBalance();
 });
 
 function startCountdown() {
