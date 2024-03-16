@@ -26,19 +26,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Ensure the Solana Web3.js library is correctly imported in your HTML file
 // <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest"></script>
-
 async function fetchSolanaBalance() {
-    const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Replace with your actual wallet address
     try {
+        console.log("Attempting to create connection...");
         const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
-        const publicKey = new solanaWeb3.PublicKey(walletAddress);
+        console.log("Connection:", connection);
+
+        console.log("Attempting to create public key...");
+        const publicKey = new solanaWeb3.PublicKey('97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ');
+        console.log("PublicKey:", publicKey);
+
+        console.log("Attempting to fetch balance...");
         const balance = await connection.getBalance(publicKey);
+        console.log("Balance:", balance);
+
         document.getElementById('balance').innerText = `Wallet Balance: ${(balance / solanaWeb3.LAMPORTS_PER_SOL).toFixed(2)} SOL`;
     } catch (error) {
-        console.error("Error fetching Solana balance:", error);
+        console.error("Error:", error);
         document.getElementById('balance').innerText = "Error fetching balance";
     }
 }
 
-document.addEventListener('DOMContentLoaded', fetchSolanaBalance);
 
