@@ -31,6 +31,7 @@ function startCountdown() {
 async function fetchSolanaBalance() {
     const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Wallet address
     try {
+        console.log(solanaWeb3); 
         console.log("Attempting to create connection...");
         const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
         console.log("Connection established.");
