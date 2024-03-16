@@ -29,11 +29,13 @@ function startCountdown() {
 }
 
 async function fetchSolanaBalance() {
-    const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Wallet address
+    const walletAddress = '97xH1PV8zGhMbEZCuMN2TQTCTsZ5HgkvQvm2ncfqT2TZ'; // Replace with your actual wallet address
     try {
-        console.log(solanaWeb3); 
+        // Use your custom RPC endpoint
+        const rpcUrl = "https://serene-warmhearted-waterfall.solana-mainnet.quiknode.pro/129e834e6a77e83fd43297b5cc399351a991f0f2/";
+        const connection = new solanaWeb3.Connection(rpcUrl, 'confirmed');
+        
         console.log("Attempting to create connection...");
-        const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
         console.log("Connection established.");
 
         console.log("Creating public key from wallet address...");
